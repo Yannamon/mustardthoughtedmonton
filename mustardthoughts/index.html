@@ -15,8 +15,10 @@
     <link rel="manifest" href="/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Murecho:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css" media="screen" />
@@ -43,10 +45,10 @@
 <body>
     <!-- Navigation Sidebar (hidden by default) -->
     <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-animate-left" id="mySidebar">
-        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">X</a>
         <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
         <a href="international.html" onclick="w3_close()" class="w3-bar-item w3-button">International</a>
-        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Nav Item Three</a>
+        <!-- <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Nav Item Three</a> -->
     </nav>
 
     <!-- Top menu -->
@@ -62,7 +64,7 @@
             <!-- Image as content not design -->
             <img class="header-bg-image" src="img/mustard-shelf-1920.jpg" alt="large shelf full of mustard">
             <div class="header-content">
-                <h1>Dive into the world of <span class="shine">mustard</span></h1>
+                <h1>Dive into the world of <span class="shine" id="changing-font">mustard</span></h1>
                 <h2>Make it as spicy as you want </h2>
             </div>
         </div>
@@ -72,14 +74,15 @@
         <!-- <aside class="leaderboard">
 		</aside> -->
         <!-- end of sidebar1 -->
-
+        <a href="#"><img class="ads" src="img/webmarketingbanner01.jpg" alt="web marketing banner ad blog"></a>
         <section class="content">
-            <a href="#"><img class="ads" src="img/webmarketingbanner01.jpg" alt="web marketing banner ad blog"></a>
+            <div class="coolimg">
             <h2>Mustard the condiment</h2>
+            </div>
             <article>
-                <div class="image-container">
-                    <img src="img/mustard-757.jpg" alt="3 kinds of mustard toppings" />
-                </div>
+                <!-- <div class="image-container">
+                    <img src="" alt="3 kinds of mustard toppings" />
+                </div> -->
                 <h3>First stop honey mustard in Edmonton</h3>
                 <p>What brings that perfect kick with some sweetness? There is nothing better than a bit of honey mustard with your chicken dish or an excellent salmon dish. Why not a honey mustard salad dressing? The use of mustard has a history dating
                     back to Ancient Egypt. Nowadays, the culture revolving around mustard is present in every country. Many mustard-related products are available for purchase, from Heinz honey mustard to honey mustard glaze for ham. In our area of interest,
@@ -89,11 +92,12 @@
                 <div class="outer-container">
                     <div class="inner-container">
                         <!-- First inner container -->
+                        
                         <div class="image-container">
                             <img src="img/mustard-256-2.jpg" alt="mustard seeds" />
                         </div>
                         <!-- End of the image container -->
-                        <h3>How do the mustard seeds grow? </h3>
+                        <h3>How do the mustard seeds grow?</h3>
                         <p>To enjoy so much mustard usage, we as customers must understand some knowledge of mustard seeds. These seeds are commonly sprouting between the third and tenth days after being planted. The leaves it produces are eatable to be
                             used in a salad dish. After enough time, the leaves will grow extensive, harsh, and spicy. A fully grown <a href="https://www.google.com/search?q=mustard+plant&sxsrf=APq-WBv_UXaKyM5_Rs--GS-xy9mZ1jt0Lw:1643378563632&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjC0pCcztT1AhXRyqQKHaIAClgQ_AUoAXoECAEQAw&biw=1360&bih=568&dpr=1">mustard plant</a>                            can be as tall as 45 inches. The mustard plants and seeds are available at the Old Strathcona Farmer's market in Edmonton. Northern Alberta is also the home of several mustard plant farms such as <a href="https://www.google.com/maps/place/Cheyenne+Tree+Farms+Ltd/@53.4550453,-114.25125,9z/data=!4m9!1m2!2m1!1smustard+plant+farm+edmonton!3m5!1s0x53a01cc8b74977b9:0x9fd34bbe504e1422!8m2!3d53.3666143!4d-113.4405201!15sChttdXN0YXJkIHBsYW50IGZhcm0gZWRtb250b26SAQl0cmVlX2Zhcm0">the Cheyenne Tree Farms Ltd</a></p>
                     </div>
@@ -210,6 +214,16 @@
         function w3_close() {
             document.getElementById("mySidebar").style.display = "none";
         }
+        const fonts = ['Arial', 'Times New Roman', 'Railway', 'Courier New', 'Comic Sans MS', 'Impact', 'Georgia', 'Lucida Console', 'Lucida Sans Unicode', 'Palatino Linotype', 'Tahoma', 'Trebuchet MS', 'Garamond', 'Bookman Old Style', 'Brush Script MT', 'Copperplate', 'Franklin Gothic Medium', 'Gill Sans', 'Lucida Bright', 'Monotype Corsiva', 'Rockwell'];
+            let currentFontIndex = 0;
+            const changingFontSpan = document.getElementById('changing-font');
+
+            setInterval(() => {
+                currentFontIndex = (currentFontIndex + 1) % fonts.length;
+                const newFont = fonts[currentFontIndex];
+                changingFontSpan.style.fontFamily = newFont;
+            }, 1000);
+
     </script>
 </body>
 

@@ -1,12 +1,11 @@
-html {
-    background-color: grey;
-}
+
 
 body {
-    font-family: 'Murecho', sans-serif;
+    font-family: 'Roboto Mono', monospace;
     color: rgb(255, 255, 255);
     font-size: 22px;
     line-height: 1.5;
+    background-color: #000000;
 }
 
 
@@ -39,16 +38,19 @@ body {
     overflow: hidden
 }
 
+
+
 .w3-top,
 .w3-bottom {
     position: fixed;
     width: 100%;
-    z-index: 1
+    z-index: 1;
 }
 
 .w3-top {
     top: 0;
     font-size: 48px;
+    background-color: transparent;
     /* Hamburger bars size */
 }
 
@@ -59,7 +61,7 @@ body {
 .w3-sidebar {
     height: 100%;
     width: 200px;
-    background-color: #fff;
+    background-color: #000000;
     position: fixed!important;
     z-index: 1;
     overflow: auto;
@@ -79,6 +81,17 @@ body {
         left: 0;
         opacity: 1
     }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 
@@ -121,34 +134,111 @@ sequence. */
 
 header h1 {
     /* 64px is 3.333%  of 1920px */
-    font-size: 3.333vw;
+    font-size: 4rem;
+    margin-left: 2rem;
+    /* width: 85%; */
+    padding-top: 1rem;
 }
 
 header h2 {
     /* 40px is 2.083%  of 1920px */
-    font-size: 2.083vw;
+    font-size: 1.65rem;
+    
+}
+
+h1:hover {
+    color: rgb(255, 255, 255);
+    
+}
+
+header h2 {
+    /* 40px is 2.083%  of 1920px */
+    font-size: 1.65rem;
+    margin-left: 2rem;
+    padding: 0 0;
 }
 
 .shine {
     /*  Call to action color  */
-    color: yellow;
+    color: white;
 }
+
+a {
+     color: yellow;
+    text-decoration: none;
+}
+
+a:hover {
+        color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
 
 h1,
 h2,
 h3 {
-    font-family: 'Architects Daughter', cursive;
+    font-family: 'roboto mono', monospace;
     color: rgb(194, 194, 3);
 }
 
 h2,
 h3 {
     line-height: 1;
-    margin: 40px 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    /* margin: 40px 0; */
+}
+
+.coolimg {
+    background-image: url('../img/mustard-757.jpg');
+    width: 80vw;
+    height: 20vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* .coolimgg {
+    background-image: url('../img/mustard-256-2.jpg');
+    width: 80vw;
+    height: 20vh;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.5rem;
+}
+
+.coolimgg h2 {
+} */
+
+.coolimgg:hover {
+    /* background-image: url('../img/mustard-757.jpg'); */
+    background-image: none;
+    background-color: transparent;
+    width: 80vw;
+    height: 20vh;
+    background-size: cover;
+    background-position: center;
+    animation: slideinleft 2s;
+    transition: ease-in 2s;
+}
+
+.coolimg:hover {
+    /* background-image: url('../img/mustard-757.jpg'); */
+    background-image: none;
+    background-color: transparent;
+    width: 80vw;
+    height: 20vh;
+    background-size: cover;
+    background-position: center;
+        transition: ease-in 2s;
 }
 
 h2 {
     font-size: 24px;
+    padding: 60px 60px;
+    /* margin-left: 1rem; */
+    height: 2rem;
+        text-align: center;
+        margin-right: 4rem;
 }
 
 h3 {
@@ -157,6 +247,7 @@ h3 {
 
 p {
     margin-bottom: 18px;
+    line-height: 22px;
 }
 
 
@@ -196,10 +287,8 @@ header {
     opacity: 0.25;
     /*The opacity property specifies the opacity/transparency of an element.*/
     position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: auto;
+    height: 60vh;
 }
 
 .header-content {
@@ -223,19 +312,21 @@ main {
     overflow: hidden;
 }
 
-.content {
+/* .content {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-}
+} */
 
 article img {
-    border: none;
+    border-radius: 10px 0 10px 0;
+    width: 200%;
 }
 
 .ads {
     margin-left: auto;
     margin-right: auto;
+    /* width: 200%; */
 }
 
 .image-container {
@@ -246,16 +337,17 @@ article img {
 footer {
     padding: 40px 0;
     margin-top: 24px;
-    background-color: #a9a9a9;
+    background-color: #000000;
 }
 
-footer ol {
+footer>ol {
     font-size: 20px;
     text-align: center;
     list-style-type: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 4rem;
     padding: 0;
 }
 
@@ -304,6 +396,18 @@ a:active {
     .hamburger-position {
         margin-left: 10%;
     }
+        .recipe {
+            margin: 10% 20%;
+            background-color: rgba(255, 255, 255, 0.479);
+            padding: 5% 5%;
+        }
+        .coolimg {
+            background-image: url('../img/mustard-757.jpg');
+            width: 80vw;
+            height: 20vh;
+            background-size: cover;
+            background-position: center;
+        }
 }
 
 section div ul {
@@ -311,9 +415,15 @@ section div ul {
 }
 
 .recipe {
-    margin: 10% 20%;
+    /* margin: 5% 5%; */
     background-color: rgba(255, 255, 255, 0.479);
     padding: 5% 5%;
+    border-radius: 20px;
+
+}
+
+.recipe li {
+    border-bottom: yellow 1px dotted;
 }
 
 .field div {
