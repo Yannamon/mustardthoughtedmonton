@@ -21,6 +21,8 @@ body {
     min-width: 300px
 }
 
+
+
 .w3-bar-item {
     padding: 8px;
     width: auto;
@@ -67,9 +69,26 @@ body {
     overflow: auto;
 }
 
+.w3-sidebar a:hover,
+a:active {
+    color: #f8f2f2;
+    /* text-decoration: underline; */
+    font-size: 18px;
+    margin-left: 20px;
+    border: 2px solid #fff;
+    padding: 10px;
+}
+
 .w3-animate-left {
     position: relative;
     animation: animateleft 0.4s;
+}
+
+.recipe {
+    margin: 2% 5%;
+    background-color: rgba(255, 255, 255, 0.479);
+    padding: 5% 5%;
+    /* display: inline; */
 }
 
 @keyframes animateleft {
@@ -94,6 +113,39 @@ body {
     border: 0;
 }
 
+/* Define the initial state of the paragraph */
+.animated-paragraph {
+    opacity: 1;
+    transform: scale(1);
+    /* color: black; */
+    left: -20rem;
+    transition: all 0.5s ease-out;
+}
+
+.recipe ul{
+    padding-left: 0;
+}
+
+/* Define the second keyframe state when scrolling */
+.animated-paragraph.animate-1 {
+    transform: scale(1.2);
+    opacity: 1;
+    left: 0;
+}
+
+/* Define the third keyframe state when scrolling */
+.animated-paragraph.animate-2 {
+    transform: scale(0.8);
+    font-style: bold;
+}
+
+/* Define the final keyframe state when scrolling */
+.animated-paragraph.animate-3 {
+    /* transform: scale(0.8);
+    opacity: 0; */
+        transform: scale(0.9);
+    font-weight: normal;
+}
 
 /* The @keyframes CSS at-rule controls the intermediate steps in a CSS animation
 sequence by defining styles for keyframes (or waypoints) along the animation
@@ -134,7 +186,7 @@ sequence. */
 
 header h1 {
     /* 64px is 3.333%  of 1920px */
-    font-size: 4rem;
+    font-size: 3rem;
     margin-left: 2rem;
     /* width: 85%; */
     padding-top: 1rem;
@@ -190,7 +242,7 @@ h3 {
 }
 
 .coolimg {
-    background-image: url('../img/mustard-757.jpg');
+    background-image: url('../img/mustard-757.webp');
     width: 80vw;
     height: 20vh;
     background-size: cover;
@@ -242,13 +294,27 @@ h2 {
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 p {
     margin-bottom: 18px;
     line-height: 22px;
 }
+
+.header-content {
+    overflow: hidden;
+    /* max-width: 80%; */
+}
+
+.header-content span {
+   
+    font-weight: 300;
+    max-block-size: 4rem;
+    /* text-transform: uppercase; */
+    /* letter-spacing: 0.5rem; */
+}
+
 
 
 /* layout */
@@ -260,8 +326,16 @@ nav {
 
 .w3-bar-item:link,
 .w3-bar-item:visited {
-    color: #427ac1;
+    color: yellow;
     text-decoration: none;
+}
+
+.hamburger-position {
+    color: yellow;
+}
+
+.hamburger-position:hover {
+    color: rgb(255, 255, 255);
 }
 
 .w3-bar-item:hover,
@@ -366,7 +440,11 @@ a:visited {
 footer a:hover,
 a:active {
     color: #f8f2f2;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    font-size: 18px;
+    margin-left: 20px;
+    border: 2px solid #fff;
+    padding: 10px;
 }
 
 @media only screen and (min-width:900px) {
@@ -390,16 +468,26 @@ a:active {
     .w3-bar-item {
         font-size: 36px;
     }
+    
 }
 
 @media only screen and (min-width:1340px) {
     .hamburger-position {
         margin-left: 10%;
     }
-        .recipe {
-            margin: 10% 20%;
-            background-color: rgba(255, 255, 255, 0.479);
-            padding: 5% 5%;
+        .recipe>div:nth-child(1) {
+            /* margin: 10% 20%; */
+            /* background-color: rgba(255, 255, 255, 0.479); */
+            /* padding: 5% 5%; */
+            display: flex;
+            width: 100%;
+            /* flex-direction: column; */
+        }
+
+        .recipe div img {
+            width: 75%;
+            height: 15%;
+            border-radius: 20px;
         }
         .coolimg {
             background-image: url('../img/mustard-757.jpg');
@@ -407,6 +495,19 @@ a:active {
             height: 20vh;
             background-size: cover;
             background-position: center;
+        }
+        .imghover li a img {
+            opacity: 0;
+            height: 0;
+            transition: all 0.5s ease;
+        }
+
+        .imghover li a:hover img {
+            opacity: 1;
+            height: 20%;
+            position: relative;
+                top: -10rem;
+                z-index: 2;
         }
 }
 
@@ -422,8 +523,19 @@ section div ul {
 
 }
 
+.recipe img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
 .recipe li {
-    border-bottom: yellow 1px dotted;
+    border-bottom: white 1px solid;
+    background-color: #00000078;
+}
+
+.recipe li:hover {
+    background-color: #000000;
 }
 
 .field div {
