@@ -60,14 +60,94 @@
     </div>
 
     <header>
-        <div class="header-bg-wrap">
-            <!-- Image as content not design -->
-            <img class="header-bg-image" src="img/mustard-shelf-1920.webp" alt="large shelf full of mustard">
+        <div class="slider-dive">
             <div class="header-content">
                 <h1>Dive into the world of <span class="shine" id="changing-font">mustard</span></h1>
                 <h2>Make it as spicy as you want </h2>
             </div>
         </div>
+        <div class="slideshow-container">
+            <div class="preview-image"></div>
+            <div class="next-image"></div>
+            <div class="slideshow">
+                <div class="slide">
+                    <img src="img/pexels-engin-akyurt-1487514.webp" alt="mustard banner image one">
+                </div>
+                <div class="slide middle-slide">
+                    <img src="img/pexels-mayra-abeki-12157049.webp" alt="mustard banner image two">
+                </div>
+                <div class="slide">
+                    <img src="img/pexels-rdne-stock-project-8523518.webp" alt="mustard banner image three">
+                </div>
+            </div>
+            <button class="slide-button slide-left" onclick="slideTo('left')">&#10094;</button>
+            <button class="slide-button slide-right" onclick="slideTo('right')">&#10095;</button>
+        </div>
+        
+        <script>
+            // JavaScript for automatic sliding
+            (function () {
+                var slideshow = document.querySelector('.slideshow');
+                var slides = Array.from(slideshow.children);
+                var slideWidth = slides[0].getBoundingClientRect().width;
+                var currentIndex = 1; // Start with the middle slide
+
+                // Set the initial position of the slides
+                slides.forEach(function (slide, index) {
+                    slide.style.left = slideWidth * index + 'px';
+                });
+
+                // Slide to a specific direction
+                function slideTo(direction) {
+                    var currentSlide = slides[currentIndex];
+
+                    if (direction === 'left') {
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    } else if (direction === 'right') {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                    }
+
+                    var nextSlide = slides[currentIndex];
+
+                    slideshow.style.transform = 'translateX(-' + nextSlide.style.left + ')';
+                    currentSlide.classList.remove('middle-slide');
+                    nextSlide.classList.add('middle-slide');
+
+                    // Set background images for preview-image and next-image placeholders
+                    var previewImage = document.querySelector('.preview-image');
+                    var nextImage = document.querySelector('.next-image');
+
+                    var lastMiddleSlideIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    var nextRightSlideIndex = (currentIndex + 1) % slides.length;
+
+                    previewImage.style.backgroundImage = 'url(' + slides[lastMiddleSlideIndex].querySelector('img').src + ')';
+                    nextImage.style.backgroundImage = 'url(' + slides[nextRightSlideIndex].querySelector('img').src + ')';
+                }
+
+                // Bind slideTo function to slide buttons
+                var slideLeftButton = document.querySelector('.slide-left');
+                var slideRightButton = document.querySelector('.slide-right');
+
+                slideLeftButton.addEventListener('click', function () {
+                    slideTo('left');
+                });
+
+                slideRightButton.addEventListener('click', function () {
+                    slideTo('right');
+                });
+
+                // Automatically slide to the next image
+                setInterval(function () {
+                    slideTo('right');
+                }, 5000); // Change slide every 5 seconds
+            })();
+
+        </script>
+        <!-- <div class="header-bg-wrap"> -->
+            <!-- Image as content not design -->
+            <!-- <img class="header-bg-image" src="img/mustard-shelf-1920.webp" alt="large shelf full of mustard"> -->
+            
+        <!-- </div> -->
     </header>
 
     <main>
