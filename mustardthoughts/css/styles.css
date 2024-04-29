@@ -84,12 +84,7 @@ a:active {
     animation: animateleft 0.4s;
 }
 
-.recipe {
-    margin: 2% 5%;
-    background-color: rgba(255, 255, 255, 0.479);
-    padding: 5% 5%;
-    /* display: inline; */
-}
+
 
 @keyframes animateleft {
     from {
@@ -700,10 +695,14 @@ section div ul {
 
 .recipe {
     /* margin: 5% 5%; */
-    background-color: rgba(255, 255, 255, 0.479);
+    background-color: rgba(64, 64, 64, 0.858);
     padding: 5% 5%;
     border-radius: 20px;
 
+}
+
+.recipe p {
+    color: rgba(255, 255, 255, 0.806);
 }
 
 .recipe img {
